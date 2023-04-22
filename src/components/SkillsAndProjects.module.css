@@ -1,0 +1,23 @@
+.skill-button {
+  height: 30px;
+}
+
+.skill-button:hover {
+  color: #ffc331;
+}
+
+.skill-button:hover .projects {
+  color: #ffc331;
+  border-color: #ffc331;
+}
+
+.project {
+  height: 324px;
+}
+
+.project img {
+  height: 208px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}

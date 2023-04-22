@@ -1,0 +1,12 @@
+.project {
+  height: 370px;
+}
+@media (min-width: 1024px) {
+  .project {
+    height: auto;
+  }
+}
+.project img {
+  height: 250px;
+  object-fit: cover;
+}

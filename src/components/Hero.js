@@ -2,7 +2,7 @@ const Hero = () => {
   return (
     <section id="hero-section" className="flex flex-col gap-16 py-28">
       <p className="font-videotype">
-        0 <span className="text-whitebc">/ 1</span>
+        0 <span className="text-whitebc">/ 3</span>
       </p>
       <h1 className="font-videotype text-3xl sm:text-7xl leading-tight">
         My name is Mo. I’m a full stack JavaScript developer.
