@@ -1,0 +1,35 @@
+.skill-button {
+  height: 30px;
+}
+
+.skill-button:hover,
+.active-filter {
+  color: #ffc331;
+}
+
+.skill-button:hover .projects,
+.active-filter .projects {
+  color: #ffc331;
+  border-color: #ffc331;
+}
+
+.project {
+  height: 324px;
+}
+
+.project img {
+  height: 208px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  outline: 2px solid #0f0f0f;
+  /* background-color: #ffe4c4;
+    color: #FFFFFF;
+    padding: 3rem 20px; */
+}
