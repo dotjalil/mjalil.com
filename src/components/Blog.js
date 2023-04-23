@@ -10,7 +10,7 @@ const Blog = () => {
         2 <span className="text-whitebc">/ 3</span>
       </p>
       <h2 className="mt-5 text-4xl">latest blogs</h2>
-      <div className="sm:grid sm:grid-cols-3 gap-[50px] mt-9">
+      <div className="grid md:grid-cols-2 gap-10 lg:grid-cols-3 xl:gap-[50px] md:gap-6 mt-9">
         <Link
           className={`${Styles.project} rounded-3xl bg-[#222222] text-white pb-6`}
           href={"#"}

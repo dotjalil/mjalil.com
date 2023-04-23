@@ -19,7 +19,7 @@ const SkillsAndProjects = () => {
           1 <span className="text-whitebc">/ 3</span>
         </p>
         <h2 className="mt-5 text-4xl">my tech stack</h2>
-        <div className="sm:grid sm:grid-cols-3 gap-[100px]">
+        <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-[100px] gap-y-0">
           <div className="mt-10">
             <div className="flex items-center gap-10">
               <h3 className="text-lg text-whiteaf">programming_languages</h3>
@@ -138,10 +138,10 @@ const SkillsAndProjects = () => {
           </div>
         </div>
       </section>
-      <section id="projects" className="font-videotype pb-20">
+      <section id="projects" className="font-videotype">
         <p className="text-lg text-whiteaf">pick a technology to filter 👆</p>
         <h2 className="mt-5 text-4xl">featured projects</h2>
-        <div className="sm:grid sm:grid-cols-3 gap-[50px] mt-9">
+        <div className="grid sm:grid-cols-3 gap-10 xl:gap-[50px] md:gap-6 mt-9">
           <Link
             className={`${Styles.project} rounded-xl bg-white text-black pb-6 outline outline-2 outline-white`}
             href={"#"}
