@@ -50,7 +50,7 @@ const Contact = () => {
   return (
     <section className="mt-28">
       <p className="font-videotype">
-        3 <span className="text-whitebc">/ 3</span>
+        2 <span className="text-whitebc">/ 2</span>
       </p>
       <h2 className="font-videotype mt-5 text-4xl">contact me</h2>
       {!formSubmitted && (

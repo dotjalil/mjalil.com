@@ -5,10 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import SkillsAndProjects from "@/components/skillsAndProjects/SkillsAndProjects";
-import Blog from "@/components/Blog";
 import Contact from "@/components/ContactSection";
-import styles from "@/styles/Home.module.css";
-import Image from "next/image";
 import { gql } from "@apollo/client";
 import { getApolloClient } from "util/apollo-client";
 

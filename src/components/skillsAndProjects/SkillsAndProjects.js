@@ -101,7 +101,7 @@ const SkillsAndProjects = (props) => {
     <>
       <section id="stack" className="font-videotype pb-20">
         <p className="">
-          1 <span className="text-whitebc">/ 3</span>
+          1 <span className="text-whitebc">/ 2</span>
         </p>
         <h2 className="mt-5 text-4xl">my tech stack</h2>
         <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-[100px] gap-y-0">
