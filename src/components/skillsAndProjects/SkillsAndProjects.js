@@ -261,7 +261,7 @@ const SkillsAndProjects = (props) => {
             <div className="group inline-block">
               <button
                 id="stickyFilterButton"
-                className={`${Styles.stickyFilterButton} px-3 py-1 bg-[transparent] flex items-center`}
+                className={`${Styles.stickyFilterButton} pr-3 py-1 bg-[transparent] flex items-center`}
                 onClick={handleStickyFilterDropdown}
                 ref={buttonDropdownRef}
               >
@@ -280,7 +280,7 @@ const SkillsAndProjects = (props) => {
               </button>
               <ul
                 className="bg-black border rounded-sm transform scale-0 absolute 
-  transition duration-150 ease-in-out origin-top min-w-32 text-lg min-w-[190px] ml-3"
+  transition duration-150 ease-in-out origin-top min-w-32 text-lg min-w-[190px] ml-0"
                 ref={filterDropdownRef}
               >
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">

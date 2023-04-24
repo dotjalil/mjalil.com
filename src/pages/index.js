@@ -38,7 +38,7 @@ export default function Home(props) {
         <div className="container mx-auto px-4">
           <Hero />
           <SkillsAndProjects projects={projects} />
-          <Blog />
+          {/* <Blog /> */}
           <Contact />
         </div>
         <Footer />
