@@ -33,3 +33,7 @@
     color: #FFFFFF;
     padding: 3rem 20px; */
 }
+
+.stickyHeader select option {
+  font-size: 16px;
+}
