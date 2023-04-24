@@ -255,7 +255,7 @@ const SkillsAndProjects = (props) => {
         <p className="text-lg text-whiteaf">pick a technology to filter 👆</p>
         <h2
           id="filter-header"
-          className={`${Styles.stickyHeader} text-xl md:text-4xl bg-[#0f0f0f] py-6`}
+          className={`${Styles.stickyHeader} text-xl md:text-4xl bg-[#0f0f0f] py-6 flex items-center justify-between`}
         >
           <div>
             <div className="group inline-block">
