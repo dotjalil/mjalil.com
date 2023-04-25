@@ -25,7 +25,7 @@ const Hero = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-[30px] mr-10"
+          className="w-[30px] mr-10 hidden md:block"
         >
           <path
             strokeLinecap="round"
@@ -34,9 +34,9 @@ const Hero = () => {
           />
         </svg>
       </div>
-      <div className="flex gap-7">
+      <div className="flex gap-3 lg:gap-7">
         <Link
-          className="w-[198px] h-16 flex items-center justify-center h-full py-5 bg-[#E3E3E3] text-[#3A3A3A] border rounded-lg border-gray-200 text-base gap-4"
+          className="w-[198px] h-16 flex items-center justify-center h-full py-4 lg:py-5 bg-[#E3E3E3] text-[#3A3A3A] border rounded-lg border-gray-200 text-base gap-4"
           target="_blank"
           href="https://drive.google.com/file/d/1xUhJ6FxSVxMa5AAD5rkZkVR-eVv2EM-R/view?usp=sharing"
         >
@@ -49,13 +49,27 @@ const Hero = () => {
           />
         </Link>
         <Link
-          className="w-[198px] h-16 flex items-center justify-center h-full py-5 bg-[#3A3A3A] text-[#E3E3E3] border rounded-lg border-[#3A3A3A] text-base gap-4"
+          className="w-[198px] h-16 flex items-center justify-center h-full py-4 lg:py-5 bg-[#3A3A3A] text-[#E3E3E3] border rounded-lg border-[#3A3A3A] text-base gap-4"
           href="mailto:mo@mjalil.com"
         >
           Contact Me
           <Image src={emailIcon} alt="download icon" width={24} height={24} />
         </Link>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-[30px] mr-10 block md:hidden"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+        />
+      </svg>
     </section>
   );
 };
