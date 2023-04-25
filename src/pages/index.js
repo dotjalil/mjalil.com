@@ -8,6 +8,7 @@ import SkillsAndProjects from "@/components/skillsAndProjects/SkillsAndProjects"
 import Contact from "@/components/ContactSection";
 import { gql } from "@apollo/client";
 import { getApolloClient } from "util/apollo-client";
+import ContactByEmail from "@/components/ContactByEmail";
 
 Router.events.on("routeChangeStart", (url) => {
   nprogress.start();
@@ -36,7 +37,8 @@ export default function Home(props) {
           <Hero />
           <SkillsAndProjects projects={projects} />
           {/* <Blog /> */}
-          <Contact />
+          {/* <Contact /> */}
+          <ContactByEmail />
         </div>
         <Footer />
       </main>
