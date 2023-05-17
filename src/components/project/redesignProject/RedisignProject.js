@@ -3,6 +3,10 @@ import ProjectDetails from "./ProjectDetails";
 import parse from "html-react-parser";
 
 const RedesignProject = ({ project, projectDetails, projectLinks, blocks }) => {
+  if (!project) {
+    return;
+  }
+
   return (
     <>
       <div className="container mx-auto px-4">
@@ -26,7 +30,7 @@ const RedesignProject = ({ project, projectDetails, projectLinks, blocks }) => {
       <div className="container mx-auto">
         {blocks.map((block) => {
           if (block.type.split("/")[0] === "lazyblock") {
-            return parse(block.renderedHtml);
+            return <div key={block.id}>{parse(block.renderedHtml)}</div>;
           }
         })}
       </div>

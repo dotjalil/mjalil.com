@@ -7,16 +7,9 @@ import Footer from "@/components/Footer";
 import { gql } from "@apollo/client";
 import { getApolloClient } from "util/apollo-client";
 import ContactByEmail from "@/components/ContactByEmail";
-import Link from "next/link";
-import Image from "next/image";
 
-import RedesignProject from "./redesignProject/RedisignProject";
-// Project Page Components: Redeisgn Project type
-import ProjectHero from "./redesignProject/ProjectHero";
-import ProjectDetails from "./redesignProject/ProjectDetails";
-
-import parse from "html-react-parser";
-import Apps from "./apps/Apps";
+import RedesignProject from "../../components/project/redesignProject/RedisignProject";
+import Apps from "../../components/project/apps/Apps";
 
 Router.events.on("routeChangeStart", (url) => {
   nprogress.start();

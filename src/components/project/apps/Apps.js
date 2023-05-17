@@ -6,6 +6,10 @@ import Thumb from "../../../../public/thumbnail.png";
 
 const Apps = ({ project, blocks }) => {
   console.log("Project: ", project);
+  if (!project) {
+    return;
+  }
+
   return (
     <>
       <div className="container mx-auto px-4">
@@ -38,7 +42,7 @@ const Apps = ({ project, blocks }) => {
       <div className="container mx-auto">
         {blocks.map((block) => {
           if (block.type.split("/")[0] === "lazyblock") {
-            return parse(block.renderedHtml);
+            return <div key={block.id}>{parse(block.renderedHtml)}</div>;
           }
         })}
       </div>
