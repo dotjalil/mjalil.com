@@ -21,6 +21,65 @@ const SkillsAndProjects = (props) => {
   const buttonDropdownRef = useRef();
   const filterDropdownRef = useRef();
 
+  function getSkillCount(skillName, skillList) {
+    const skillObj = skillList.filter((skill) => {
+      if (skill.name === skillName) {
+        return skill.count;
+      }
+    });
+    if (skillObj.length > 0) {
+      return skillObj[0].count;
+    } else {
+      return 0;
+    }
+  }
+
+  const skills = {
+    programming_languages: [
+      {
+        name: "Python",
+        count: getSkillCount("Python", props.skills),
+        logo: pyLogo,
+      },
+      {
+        name: "JavaScript",
+        count: getSkillCount("JavaScript", props.skills),
+        logo: jsLogo,
+      },
+    ],
+    frameworks: [
+      {
+        name: "ReactJS",
+        count: getSkillCount("ReactJS", props.skills),
+        logo: reactLogo,
+      },
+      {
+        name: "NodeJS",
+        count: getSkillCount("NodeJS", props.skills),
+        logo: nodeLogo,
+      },
+      {
+        name: "NextJS",
+        count: getSkillCount("NextJS", props.skills),
+        logo: nextLogo,
+      },
+    ],
+    other_technologies: [
+      {
+        name: "WordPress",
+        count: getSkillCount("WordPress", props.skills),
+        logo: wpLogo,
+      },
+      {
+        name: "TailwindCSS",
+        count: getSkillCount("TailwindCSS", props.skills),
+        logo: twLogo,
+      },
+    ],
+  };
+
+  console.log("Py skill:", skills);
+
   function handleFilterProjects(e, skill) {
     setLoading(true);
     // Get the clicked element
@@ -112,40 +171,32 @@ const SkillsAndProjects = (props) => {
             </div>
 
             <div className="mt-6 flex flex-col gap-4">
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "JavaScript");
-                }}
-                value="JavaScript"
-              >
-                <div className="flex items-center">
-                  <Image alt="JavaScript" src={jsLogo} className="mr-5" />
-                  <span className="font-roboto">JavaScript</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "Python");
-                }}
-                value="Python"
-              >
-                <div className="flex items-center">
-                  <Image alt="Python" src={pyLogo} className="mr-5" />
-                  <span className="font-roboto">Python</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
+              {skills.programming_languages.map((skill) => {
+                return (
+                  <button
+                    key={skill.name}
+                    className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
+                    onClick={(e) => {
+                      handleFilterProjects(e, skill.name);
+                    }}
+                    value={skill.name}
+                  >
+                    <div className="flex items-center">
+                      <Image
+                        alt="technology icon"
+                        src={skill.logo}
+                        className="mr-5"
+                      />
+                      <span className="font-roboto">{skill.name}</span>
+                    </div>
+                    <div
+                      className={`${Styles.projects} text-sm border-b border-white`}
+                    >
+                      {skill.count} projects
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="mt-10">
@@ -154,57 +205,32 @@ const SkillsAndProjects = (props) => {
               <div className="border border-whiteaf h-0 w-full" />
             </div>
             <div className="mt-6 flex flex-col gap-4">
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "ReactJS");
-                }}
-                value="ReactJS"
-              >
-                <div className="flex items-center">
-                  <Image alt="React" src={reactLogo} className="mr-5" />
-                  <span className="font-roboto">ReactJS</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "NodeJS");
-                }}
-                value="NodeJS"
-              >
-                <div className="flex items-center">
-                  <Image alt="NodeJS" src={nodeLogo} className="mr-5" />
-                  <span className="font-roboto">NodeJS</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "NextJS");
-                }}
-                value="NextJS"
-              >
-                <div className="flex items-center">
-                  <Image alt="NextJS" src={nextLogo} className="mr-5" />
-                  <span className="font-roboto">NextJS</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
+              {skills.frameworks.map((skill) => {
+                return (
+                  <button
+                    key={skill.name}
+                    className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
+                    onClick={(e) => {
+                      handleFilterProjects(e, skill.name);
+                    }}
+                    value={skill.name}
+                  >
+                    <div className="flex items-center">
+                      <Image
+                        alt="technology icon"
+                        src={skill.logo}
+                        className="mr-5"
+                      />
+                      <span className="font-roboto">{skill.name}</span>
+                    </div>
+                    <div
+                      className={`${Styles.projects} text-sm border-b border-white`}
+                    >
+                      {skill.count} projects
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="mt-10">
@@ -213,40 +239,32 @@ const SkillsAndProjects = (props) => {
               <div className="border border-whiteaf h-0 w-full" />
             </div>
             <div className="mt-6 flex flex-col gap-4">
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "WordPress");
-                }}
-                value="WordPress"
-              >
-                <div className="flex items-center">
-                  <Image alt="WordPress" src={wpLogo} className="mr-5" />
-                  <span className="font-roboto">WordPress</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
-              <button
-                className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
-                onClick={(e) => {
-                  handleFilterProjects(e, "TailwindCSS");
-                }}
-                value="TailwindCSS"
-              >
-                <div className="flex items-center">
-                  <Image alt="TailwindCSS" src={twLogo} className="mr-5" />
-                  <span className="font-roboto">TailwindCSS</span>
-                </div>
-                <div
-                  className={`${Styles.projects} text-sm border-b border-white`}
-                >
-                  10 projects
-                </div>
-              </button>
+              {skills.other_technologies.map((skill) => {
+                return (
+                  <button
+                    key={skill.name}
+                    className={`${Styles["skill-button"]} skill-button w-full flex items-center justify-between`}
+                    onClick={(e) => {
+                      handleFilterProjects(e, skill.name);
+                    }}
+                    value={skill.name}
+                  >
+                    <div className="flex items-center">
+                      <Image
+                        alt="technology icon"
+                        src={skill.logo}
+                        className="mr-5"
+                      />
+                      <span className="font-roboto">{skill.name}</span>
+                    </div>
+                    <div
+                      className={`${Styles.projects} text-sm border-b border-white`}
+                    >
+                      {skill.count} projects
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -19,6 +19,8 @@ Router.events.on("routeChangeComplete", (url) => {
 });
 
 export default function Home(props) {
+  console.log("skills: ", props.skills);
+
   const projects = props.projects.nodes.map((project) => {
     return {
       title: project.title,
@@ -35,7 +37,7 @@ export default function Home(props) {
         <Header />
         <div className="container mx-auto px-4">
           <Hero />
-          <SkillsAndProjects projects={projects} />
+          <SkillsAndProjects projects={projects} skills={props.skills} />
           {/* <Blog /> */}
           {/* <Contact /> */}
           <ContactByEmail />
@@ -95,6 +97,19 @@ export async function getStaticProps({ locale }) {
             }
           }
         }
+        skills {
+          nodes {
+            count
+            name
+            skillId
+            skillIcon {
+              skillIcon {
+                altText
+                mediaItemUrl
+              }
+            }
+          }
+        }
       }
     `,
     variables: {
@@ -112,6 +127,7 @@ export async function getStaticProps({ locale }) {
     props: {
       page: page.pageBy,
       projects: page.projects,
+      skills: page.skills.nodes,
     },
   };
 }
