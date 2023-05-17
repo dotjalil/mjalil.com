@@ -24,7 +24,7 @@ const RedesignProject = ({ project, projectDetails, projectLinks, blocks }) => {
               };
             })
             .reverse()}
-          thumbnail={project.projectFields.projectThumbnail.mediaItemUrl}
+          thumbnail={project.redesignProjectFields.heroImage.mediaItemUrl}
         />
       </div>
       <ProjectDetails

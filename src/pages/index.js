@@ -19,8 +19,6 @@ Router.events.on("routeChangeComplete", (url) => {
 });
 
 export default function Home(props) {
-  console.log("skills: ", props.skills);
-
   const projects = props.projects.nodes.map((project) => {
     return {
       title: project.title,

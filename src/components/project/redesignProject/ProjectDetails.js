@@ -4,7 +4,6 @@ import Image from "next/image";
 import openLink from "../../../../public/open-link.svg";
 
 const ProjectDetails = (props) => {
-  console.log("props: ", props);
   return (
     <section className="px-[10px]">
       <div className="w-full bg-[#222222] rounded-[50px]">

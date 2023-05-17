@@ -101,6 +101,10 @@ export async function getStaticProps({ params, locale }) {
                   websiteLink
                 }
               }
+              heroImage {
+                altText
+                mediaItemUrl
+              }
             }
             skills {
               nodes {

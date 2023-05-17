@@ -78,8 +78,6 @@ const SkillsAndProjects = (props) => {
     ],
   };
 
-  console.log("Py skill:", skills);
-
   function handleFilterProjects(e, skill) {
     setLoading(true);
     // Get the clicked element
@@ -116,7 +114,6 @@ const SkillsAndProjects = (props) => {
   }
 
   function handleDropdownFilter(e) {
-    console.log(e.target.value);
     // remove active-filter class from any other buttons
     const buttons = document.querySelectorAll(".skill-button");
     buttons.forEach((button) => {

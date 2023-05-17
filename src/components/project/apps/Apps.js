@@ -5,7 +5,6 @@ import Image from "next/image";
 import Thumb from "../../../../public/thumbnail.png";
 
 const Apps = ({ project, blocks }) => {
-  console.log("Project: ", project);
   if (!project) {
     return;
   }
