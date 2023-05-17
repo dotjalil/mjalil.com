@@ -17,11 +17,22 @@ const ProjectHero = (props) => {
       <p className="text-base text-center text-white94 w-full max-w-[814px] mx-auto font-roboto mb-4">
         {props.excerpt}
       </p>
-      <div className="flex items-center gap-6 max-w-[814px] mx-auto justify-center">
+      <div className="flex items-center gap-6 max-w-[814px] mx-auto justify-center mt-[30px]">
         {props.skills.map((skill) => (
-          <div key={skill} className="flex items-center gap-2 justify-center">
-            <Image alt="tech" className="w-8 h-8" src={wpLogo} />
-            <span className="text-base text-white font-roboto">{skill}</span>
+          <div
+            key={skill.name}
+            className="flex items-center gap-2 justify-center"
+          >
+            <Image
+              width={32}
+              height={32}
+              alt={skill.icon.alt}
+              className="w-8 h-8"
+              src={skill.icon.url}
+            />
+            <span className="text-base text-white font-roboto">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>

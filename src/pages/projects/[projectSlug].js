@@ -105,6 +105,12 @@ export async function getStaticProps({ params, locale }) {
             skills {
               nodes {
                 name
+                skillIcon {
+                  skillIcon {
+                    altText
+                    mediaItemUrl
+                  }
+                }
               }
             }
             excerpt

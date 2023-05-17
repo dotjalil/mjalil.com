@@ -14,7 +14,15 @@ const RedesignProject = ({ project, projectDetails, projectLinks, blocks }) => {
           title={project.title}
           excerpt={project.excerpt.replace(/(<([^>]+)>)/gi, "")}
           skills={project.skills.nodes
-            .map((skillNode) => skillNode.name)
+            .map((skillNode) => {
+              return {
+                name: skillNode.name,
+                icon: {
+                  url: skillNode.skillIcon.skillIcon.mediaItemUrl,
+                  alt: skillNode.skillIcon.skillIcon.altText,
+                },
+              };
+            })
             .reverse()}
           thumbnail={project.projectFields.projectThumbnail.mediaItemUrl}
         />
