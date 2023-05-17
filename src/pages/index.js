@@ -19,12 +19,12 @@ Router.events.on("routeChangeComplete", (url) => {
 });
 
 export default function Home(props) {
-  console.log("props: ", props);
   const projects = props.projects.nodes.map((project) => {
     return {
       title: project.title,
       thumbnail: project.projectFields.projectThumbnail.mediaItemUrl,
       skills: project.skills.nodes.map((skill) => skill.name),
+      slug: project.slug,
     };
   });
 
@@ -51,7 +51,11 @@ export async function getStaticProps({ locale }) {
   const language = locale.toUpperCase();
   const data = await apolloClient.query({
     query: gql`
-      query PostBySlug($uri: String!, $language: LanguageCodeEnum!) {
+      query PostBySlug(
+        $uri: String!
+        $language: LanguageCodeEnum!
+        $projectLang: LanguageCodeFilterEnum!
+      ) {
         pageBy(uri: $uri) {
           translation(language: $language) {
             id
@@ -70,7 +74,7 @@ export async function getStaticProps({ locale }) {
           language
           description
         }
-        projects {
+        projects(where: { language: $projectLang }) {
           nodes {
             content
             skills {
@@ -96,6 +100,7 @@ export async function getStaticProps({ locale }) {
     variables: {
       language,
       uri: "/",
+      projectLang: language,
     },
   });
 

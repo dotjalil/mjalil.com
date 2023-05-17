@@ -379,6 +379,7 @@ const SkillsAndProjects = (props) => {
                 key={project.title}
                 title={project.title}
                 image={project.thumbnail}
+                slug={project.slug}
               />
             ))}
           {!loading && projects.length === 0 && (

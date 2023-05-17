@@ -6,7 +6,7 @@ const Project = (props) => {
   return (
     <Link
       className={`${Styles.project} rounded-xl bg-white text-black pb-6 outline outline-2 outline-white`}
-      href={"#"}
+      href={`/projects/${props.slug}`}
     >
       <article>
         <Image
