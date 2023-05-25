@@ -13,7 +13,9 @@ const ProjectHero = (props) => {
         <Image src={backArrow} alt="all projects" width={24} height={24} /> all
         projects
       </Link>
-      <h1 className="text-[46px] text-center text-white mb-7">{props.title}</h1>
+      <h1 className="text-[28px] sm:text-[46px] text-center text-white mb-7">
+        {props.title}
+      </h1>
       <p className="text-base text-center text-white94 w-full max-w-[814px] mx-auto font-roboto mb-4">
         {props.excerpt}
       </p>

@@ -6,11 +6,11 @@ import openLink from "../../../../public/open-link.svg";
 const ProjectDetails = (props) => {
   return (
     <section className="px-[10px]">
-      <div className="w-full bg-[#222222] rounded-[50px]">
-        <div className="container mx-auto py-16 flex flex-col gap-14">
+      <div className="w-full bg-[#222222] rounded-[10px] px-[20px] sm:px-0 sm:rounded-[50px]">
+        <div className="container mx-auto py-[30px] sm:py-16 flex flex-col gap-14">
           <div>
             <h2 className="text-white text-[30px]">project details</h2>
-            <div className="flex gap-12 mt-8">
+            <div className="sm:flex gap-12 mt-8">
               <style>
                 {`
                   ul {

@@ -39,6 +39,8 @@ export default function Home(props) {
       <HeadHtml />
       <main className="font-videotype">
         <Header />
+        {/* Tailwind compiled classes. for later use in wordpress retrieved content (blocks) */}
+        <div className="py-12 gap-12 order-1 order-2 sm:order-1 sm:order-2"></div>
         <div className="container mx-auto px-4">
           <section className="pt-16">
             <Link href="/" className="text-base text-gray-300 flex gap-2 mb-10">

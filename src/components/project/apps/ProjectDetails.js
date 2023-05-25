@@ -6,10 +6,20 @@ import openLink from "../../../../public/open-link.svg";
 const ProjectDetails = (props) => {
   return (
     <section className="px-[10px] mt-[95px]">
-      <div className="w-full bg-[#222222] py-16 rounded-[50px]">
-        <div className="container mx-auto grid grid-cols-2">
+      <div className="w-full bg-[#222222] py-0 sm:py-16 rounded-[10px] px-[20px] sm:px-0 sm:rounded-[50px]">
+        <div className="container mx-auto py-[30px] sm:py-16 sm:grid sm:grid-cols-2">
           <div className="flex flex-col gap-14">
             <div>
+              <div className="block sm:hidden mb-[20px]">
+                <Image
+                  className="rounded-lg"
+                  src={props.thumbnail}
+                  height={300}
+                  width={500}
+                  alt="thumbnail"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
               <h2 className="text-white text-[30px]">project details</h2>
               <div className="flex gap-12 mt-8">
                 <style>
@@ -49,7 +59,7 @@ const ProjectDetails = (props) => {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="hidden sm:block">
             <Image
               className="rounded-lg"
               src={props.thumbnail}
