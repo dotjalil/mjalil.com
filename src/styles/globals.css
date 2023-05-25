@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.to-animate * {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.to-animate #hero-section,
+.to-animate #hero-section h1,
+.to-animate #hero-section h1 * {
+  opacity: 1;
+}
+
+.intro-title {
+  transition: transform 0.3s;
+}
+
+.before-animation {
+  transform: scale(1.1);
+}
+
+.after-animation {
+  transform: scale(1);
+}

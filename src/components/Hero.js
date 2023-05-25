@@ -2,16 +2,47 @@ import Link from "next/link";
 import Image from "next/image";
 import downloadIcon from "../../public/download.svg";
 import emailIcon from "../../public/email.svg";
+import { useState } from "react";
+import Typewriter from "typewriter-effect";
 
-const Hero = () => {
+const Hero = (props) => {
+  const [animated, setAnimated] = useState(false);
+
   return (
     <section id="hero-section" className="flex flex-col gap-6 lg:gap-16 py-28">
       <p className="font-videotype">
         0 <span className="text-whitebc">/ 2</span>
       </p>
-      <h1 className="font-videotype text-3xl sm:text-4xl lg:text-7xl leading-tight">
-        My name is Mo. I’m a full stack JavaScript developer.
-      </h1>
+
+      {!props.animated && (
+        <h1
+          className={`${
+            animated ? "after-animation" : "before-animation"
+          } font-videotype text-3xl sm:text-4xl lg:text-7xl leading-tight intro-title`}
+        >
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(
+                  "My name is Mo. I’m a full stack JavaScript developer."
+                )
+                .start()
+                .callFunction((instance) => {
+                  instance.elements.cursor.style.display = "none";
+                  props.stopAnimation();
+                  setAnimated(true);
+                });
+            }}
+            options={{ delay: 40 }}
+          />
+        </h1>
+      )}
+      {props.animated && (
+        <h1 className="font-videotype text-3xl sm:text-4xl lg:text-7xl leading-tight intro-title">
+          My name is Mo. I’m a full stack JavaScript developer.
+        </h1>
+      )}
+
       <div className="flex justify-between flex-col gap-[45px] items-start sm:flex-row sm:gap-0 sm:items-center">
         <p className="max-w-3xl text-white94">
           With a passion for creating dynamic and engaging web experiences. I am

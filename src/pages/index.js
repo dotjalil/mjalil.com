@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import HeadHtml from "@/components/HeadHtml";
 import Router from "next/router";
 import nprogress from "nprogress";
@@ -19,6 +20,24 @@ Router.events.on("routeChangeComplete", (url) => {
 });
 
 export default function Home(props) {
+  const [animated, setAnimated] = useState(false);
+
+  function handleStopAnimation() {
+    setTimeout(() => {
+      localStorage.setItem("animatedOnce", true);
+      setAnimated(true);
+    }, 300);
+  }
+
+  useEffect(() => {
+    // console.log("compare: ", localStorage.getItem("animatedOnce") === "true");
+    if (localStorage.getItem("animatedOnce") === "true") {
+      setAnimated(true);
+    } else {
+      setAnimated(false);
+    }
+  }, []);
+
   const projects = props.projects.nodes.map((project) => {
     return {
       title: project.title,
@@ -31,17 +50,24 @@ export default function Home(props) {
   return (
     <>
       <HeadHtml />
-      <main>
-        <Header />
-        <div className="container mx-auto px-4">
-          <Hero />
-          <SkillsAndProjects projects={projects} skills={props.skills} />
-          {/* <Blog /> */}
-          {/* <Contact /> */}
-          <ContactByEmail />
-        </div>
-        <Footer />
-      </main>
+      <style jsx global>{`
+        ${animated
+          ? ".to-animate *, header {opacity: 1;}"
+          : "header {opacity: 0; transition: opacity 1s;} html {overflow: hidden;}"}
+      `}</style>
+      <Header />
+      <div
+        className={`${
+          animated ? "animated" : "not-animated"
+        } container mx-auto px-4 to-animate`}
+      >
+        <Hero stopAnimation={handleStopAnimation} animated={animated} />
+        <SkillsAndProjects projects={projects} skills={props.skills} />
+        {/* <Blog /> */}
+        {/* <Contact /> */}
+        <ContactByEmail />
+      </div>
+      <Footer />
     </>
   );
 }
